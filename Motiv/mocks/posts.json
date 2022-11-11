@@ -1,0 +1,153 @@
+{
+	"posts": [{
+			"goalTitle": "Run a 6:15 Mile",
+			"postID": "1",
+			"goalID": "1",
+			"title": "Stay locked in. Got to 6:25!",
+			"description": "It was soo hard but I finally got to 6:25. So many people have supoorted me and it couldn't be done without them.",
+			"time": "10/7",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+		{
+			"goalTitle": "Run a 6:15 Mile",
+			"postID": "2",
+			"goalID": "1",
+			"title": "Stay locked in. Got to 6:21!",
+			"description": "6:21! Almost there",
+			"time": "10/8",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "Bench 275lbs",
+			"postID": "2",
+			"goalID": "1",
+			"title": "Just hit 215 for 3!",
+			"description": "Today was my push day for strength, and I just hit 215 for a triple. I can see 175 already 😄",
+			"time": "10/9",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "Lose 15lbs",
+			"postID": "2",
+			"goalID": "1",
+			"title": "Lost 1 and a half pounds so far! Down to 134.3 🤞",
+			"description": "Starting two weeks ago, I starte going on my diet, cutting 250 calories from maintance for a long term cut.  It's going well!",
+			"time": "10/9",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "Get a 164+ on the LSAT",
+			"postID": "2",
+			"goalID": "1",
+			"title": "Got a 160 on a practice test.. got work to do!",
+			"description": "Taking the exam coming in Decemeber, but hopefully by the February Exam, I'll be set on at least a 164.",
+			"time": "10/10",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "Reach 1550 ELO in Blitz",
+			"postID": "2",
+			"goalID": "1",
+			"title": "Just won 2 games against 1450+... Moved up to 1434!",
+			"description": "",
+			"time": "11/3",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "Meditate for 30 minutes everyday",
+			"postID": "2",
+			"goalID": "1",
+			"title": "Made it to 15 minutes",
+			"description": "The thoughts kept coming in, but I was able to let them go in and out for a 10 minutes without issues.  Then it became tough.",
+			"time": "11/3",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "Get to when Leetcode Mediums feel like Easys",
+			"postID": "2",
+			"goalID": "1",
+			"title": "2 problems in 32 minutes... All tests passed 💯",
+			"description": "Spent an hour or so working on graph probelms today, and went through 2 mediums in 32 minutes with no issues.",
+			"time": "11/4",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "522 MCAT in June",
+			"postID": "2",
+			"goalID": "1",
+			"title": "So the journey starts!",
+			"description": "It's about time I start getting ready for my first MCAT. Mainly focus on review with Princeton Prep",
+			"time": "11/6",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "Run 2 kilometers a Day",
+			"postID": "2",
+			"goalID": "1",
+			"title": "5:26AM. . . Early Moring Run Today!",
+			"description": "Sticking to it.  STAY HARD 😠",
+			"time": "11/6",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "Wake up everyday at 6:30AM, no alarm",
+			"postID": "2",
+			"goalID": "1",
+			"title": "Woke up today at 6:58AM",
+			"description": "I need to try to go to be by 10 tomorrow.  10:30 isn't working out so great",
+			"time": "11/7",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "Play all Major Scales at 144BPM",
+			"postID": "2",
+			"goalID": "1",
+			"title": "132BPM Down!",
+			"description": "Discription says it all",
+			"time": "11/9",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "Save for a Lexus IS F",
+			"postID": "2",
+			"goalID": "1",
+			"title": "Found a one accident for 23k",
+			"description": "This one seems good, but I gotta inquire about the accident.  Will probably pass since I only have 17k rn",
+			"time": "11/9",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "Get an offer from FAANG",
+			"postID": "2",
+			"goalID": "1",
+			"title": "Round 3 at Netflix ✔️",
+			"description": "This one was tough, but they passed me.  Probably need a Leetcode Premium mebership soon 😂",
+			"time": "11/9",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		},
+        {
+			"goalTitle": "Get to max spice level at BWW",
+			"postID": "2",
+			"goalID": "1",
+			"title": "Nashvile Hot tastes fine for 8 wings",
+			"description": "Movin on to Mango Habanero 😎",
+			"time": "11/9",
+			"likes": 0,
+			"image": "https://via.placeholder.com/400x200/FFB6C1/000000"
+		}
+	]
+}

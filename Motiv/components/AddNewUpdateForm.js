@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Alert, Text, StyleSheet, View, TextInput, Button, ScrollView} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { firebase, db } from '../firebase/config'
+import { firebase, db, auth } from '../firebase/config'
 import { onValue, set, ref, remove } from "firebase/database";
 import { uid } from 'uid';
 
@@ -17,26 +17,30 @@ const AddNewUpdateForm = (props) => {
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
   const Submit = () => {
-    props.navigation.goBack();
     const uuid = uid();
-    const st = `/1_user/goals/Personal/${props.route.params.title}/posts/${uuid}/${title}`;
-
-    console.log(":::::::::::", props.route.params);
-
-    set(ref(db, st), {"title": title,
-        "description": desc,
-        "time": postDate
-    });
-    const newJson = props.route.params.timelineData;
-      newJson[props.route.params.title] = {"title": title,
-      "description": desc,
-      "time": postDate
-      };
-      props.route.params.setTimelineData((oldarray) => [...oldarray, {"title": title,
-      "description": desc,
-      "time": postDate
-      }]);
-  };
+    const authUid = auth.currentUser.uid;
+    const st = `/${authUid}/goals/Personal/${props.route.params.title}/posts`;
+    const newJsonArray = props.route.params.timelineData;
+    newJsonArray.push({"title": title,
+    "description": desc,
+    "time": postDate
+  });
+//   set(ref(db, st), {"title": title,
+//   "description": desc,
+//   "time": postDate
+// });
+set(ref(db, st), newJsonArray);
+  // const newJson = props.route.params.timelineData;
+  //   newJson[props.route.params.title] = {"title": title,
+  //   "description": desc,
+  //   "time": postDate
+  //   };
+    // props.route.params.setTimelineData((oldarray) => [...oldarray, {"title": title,
+    // "description": desc,
+    // "time": postDate
+    // }]);
+  props.navigation.goBack();
+};
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -92,10 +96,7 @@ const styles = StyleSheet.create({
     height: 200,
     paddingHorizontal: 10,
     borderRadius: 10,
-    backgroundColor: '#b6b6b6',
-    // flexWrap: 'wrap',
-    // flex:1,
-    // flexDirection: 'row'
+    backgroundColor: '#b6b6b6'
   },
   formText: {
     color: '#00affe',

@@ -7,8 +7,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import ExploreScreen from './screens/ExploreScreen';
 import GoalScreens from './screens/GoalScreens';
 import ProfileHomeScreen from './screens/ProfileHomeScreen';
-import CalendarScreen from './screens/CalendarScreenTmp';
-// import StartScreen from './screens/StartScreen';
 //Screen names
 const homeName = "Home";
 const exploreName = "Explore";
@@ -50,7 +48,7 @@ function MainContainer() {
         >
         <Tab.Screen name={exploreName} component={ExploreScreen} />
         <Tab.Screen name={goalsName} component={GoalScreens} />
-        <Tab.Screen name={homeName} component={ProfileHomeScreen} />
+        {/* <Tab.Screen name={homeName} component={LoginScreen} /> */}
       </Tab.Navigator>
     // </NavigationContainer>
   );

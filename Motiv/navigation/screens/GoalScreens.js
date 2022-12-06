@@ -12,7 +12,6 @@ const Stack = createNativeStackNavigator()
 function GoalScreens() {
     return <Stack.Navigator>
        <Stack.Screen name="Categories" component={GoalCategories} options={{headerShown: false}} />
-       {/* <Stack.Screen name="Goals" component={ListOfGoalsScreen} /> */}
        <Stack.Screen name="Update" component={UpdateScreen} />
        <Stack.Screen name="New Goal" component={NewGoalScreen} />
        <Stack.Screen name="New Update" component={AddNewUpdateForm} />

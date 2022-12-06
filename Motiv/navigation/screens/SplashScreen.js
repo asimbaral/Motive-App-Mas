@@ -54,7 +54,7 @@ export default function StartScreen() {
       <Image source={MotivLogo} style={{ width: 271, height: 101 }}/>
     </View>
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate("Main")} style={styles.button}>
+      <TouchableOpacity onPress={() => navigation.replace("Login")} style={styles.button}>
         <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
     </View>

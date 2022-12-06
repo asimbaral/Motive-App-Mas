@@ -15,7 +15,6 @@ import React, { Component } from 'react';
      this.renderSelected = this.renderSelected.bind(this)
      this.renderDetail = this.renderDetail.bind(this)
 
-     console.log("555555555555555555555555555555", props);
 
      this.state = {selected: null}
 
@@ -60,9 +59,6 @@ import React, { Component } from 'react';
    render() {
      return (
        <View style={styles.container}>
-         {/* {this.renderSelected()} */}
-         {/* <Text>{JSON.stringify(this.data, null, 2)}</Text> */}
-         {/* <Text>{JSON.stringify(this.props.props, null, 2)}</Text> */}
          <Timeline 
            style={styles.list}
            data={this.props.props}

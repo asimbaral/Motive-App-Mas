@@ -17,10 +17,7 @@ export default function ProfileHomeScreen() {
           <View style={styles.header}>
             <View style={styles.headerContent}>
                 <Image style={styles.avatar} source={ profileImage}/>
-                {/* <Text style={styles.name}>
-                  John Doe
-                </Text> */}
-                {/* <Button title={"Sign Out"} onPress={()=> console.log("hello")}></Button> */}
+
             </View>
           </View>
 

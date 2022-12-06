@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Alert, Text, StyleSheet, View, TextInput, Button, ScrollView} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import CalendarScreen from '../navigation/screens/CalendarScreenTmp';
-import { firebase, db } from '../firebase/config'
+import { firebase, db, auth } from '../firebase/config'
 import { onValue, set, ref, remove } from "firebase/database";
 import { uid } from 'uid';
 
@@ -24,7 +24,7 @@ const AddNewGoalForm = ({navigation, setGoals, setGoalsJson, goalsJson}) => {
 
   const Submit = () => {
     const uuid = uid();
-    const st = `/1_user/goals/Personal/${title}`;
+    const st = `/${auth.currentUser.uid}/goals/Personal/${title}`;
 
     set(ref(db, st), {
         "UpdateStatus": frequency,
@@ -32,30 +32,22 @@ const AddNewGoalForm = ({navigation, setGoals, setGoalsJson, goalsJson}) => {
         "deadline": selected,
         "posts": [{"title": title,
         "description": description,
-        "time": INITIAL_DATE}],
-        "comments": ["Great job - Motive Team"]
-      });
-      setGoals((oldArray) => [...oldArray,  title])
-      const newJson = goalsJson
-      newJson[title] = {
-        "UpdateStatus": frequency,
-        "description": description,
-        "deadline": selected,
-        "posts": [{"title": title,
-        "description": description,
         "time": monthDate}],
         "comments": ["Great job - Motive Team"]
-      };
-      setGoalsJson(newJson);
-      // setGoalsJson({...goalsJson, '`${title}`':{
+      });
+      // setGoals((oldArray) => [...oldArray,  title])
+      // const newJson = goalsJson
+      // newJson[title] = {
       //   "UpdateStatus": frequency,
       //   "description": description,
       //   "deadline": selected,
       //   "posts": [{"title": title,
       //   "description": description,
-      //   "time": INITIAL_DATE}],
+      //   "time": monthDate}],
       //   "comments": ["Great job - Motive Team"]
-      // }})
+      // };
+      // setGoalsJson(newJson);
+
       
     
     navigation.goBack();

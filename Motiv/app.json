@@ -1,11 +1,12 @@
 {
   "expo": {
-    "name": "Motiv",
-    "slug": "Motiv",
+    "name": "motiv",
+    "slug": "motiv",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "owner": "asimbaral",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

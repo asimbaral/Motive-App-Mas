@@ -16,14 +16,12 @@ export default function Share(props) {
     const ctx = canvas.getContext('2d');
     canvas.height = 600;
     ctx.fillStyle = 'white';
-    // ctx.strokeStyle = "black";
     ctx.fillRect(0,0,300,600);
     let info = props.route.params;
     let updateInfo = props.route.params.timeline[props.route.params.timeline.length-1];
      
     ctx.fillStyle = '#008B8B';
-    // ctx.strokeStyle = "black";
-    // ctx.fillRect(0,0, 300, 120);
+
     let incre = 20;
 
     ctx.lineWidth = 5;
@@ -38,17 +36,12 @@ export default function Share(props) {
     ctx.fillText(info.currentGoal, 150, 50+incre);
     ctx.fillText("By: "+ info.deadline, 150, 85+incre);
 
-    //, by 12/18
-
-    // ctx.fillText("I want to run a 6:15 mile, by 12/18", 150, 50);
     
     ctx.font = "bold 30px Arial";
     ctx.fillStyle = 'white';
 
     ctx.fillText("NEW UPDATE: " + updateInfo.time, 150, 150+incre);
-    // ctx.fillStyle = 'black';
     ctx.textAlign = "center";
-    // ctx.font = "bold 15pt 'PT Sans'";
     ctx.font = "italic 25px Arial";
     ctx.fillText(updateInfo.title, 150, 200+incre);
     ctx.fillStyle = 'black';
@@ -86,24 +79,6 @@ export default function Share(props) {
     // And the author's Y value.
     const authorY = 200;
 
-    // context.font = "bold 10pt 'PT Sans'";
-    // context.textAlign = "center";
-    // context.fillStyle = "blue";
-    
-    // Canvas.prototype.getContext();
-
-    // context.fillText(post.title, 150, titleY);
-    // context.font = "7pt 'PT Sans'";
-    // context.fillText(post.date, 150, authorY-25);
-    // context.font = "7pt 'PT Sans'";
-    // context.fillText("New Update", 150, authorY);
-    // context.font = "7pt 'PT Sans'";
-    // context.fillText(post.description, 150, authorY+25);
-    // ctx.drawImage(imagee, 140, 400, 150, 70);
-    // imagee.addEventListener('load', async () => {
-    //   ctx.drawImage(imagee, 140, 400, 150, 70);
-    // });
-    // ctx.drawImage(imagee, 140, 400, 150, 70)
     if (loadCanvas) {
       
       let data = await canvas.toDataURL('image/png');
@@ -113,18 +88,9 @@ export default function Share(props) {
       console.log(canvas.height);
       await saveImage(data);
     }
-    // await saveImage(data);
     setLoadCanvas(false);
   }
-  // useEffect(() => {
-  //   async function getImage() {
-  //     console.log("In use effect*************");
-  //     await createImage();
-  //   }
-  //   getImage();
-    
-  // }, [0]);
-
+  
   const saveImage = async (uri) => {
     
     try {

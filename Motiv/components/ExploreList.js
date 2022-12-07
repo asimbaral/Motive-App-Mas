@@ -3,13 +3,12 @@ import {View, Text, Image, StyleSheet, TouchableOpacity, FlatList} from 'react-n
 import ExplorePost from './ExplorePost';
 import { auth, db } from '../firebase/config'
 import { onValue, set, ref, remove } from "firebase/database";
-
+import mountain from "../assets/mountain.jpg";
 export default function ExploreList({posts}) {
 
   let [explorePosts, setExplorePosts] = useState([]);
 
   useEffect(() => {
-  
     auth.onAuthStateChanged((user) => {
       if (user) {
         var st = `/`;        
@@ -19,7 +18,6 @@ export default function ExploreList({posts}) {
           if (data !== null) {
             setExplorePosts([]);
             const keys = Object.keys(data);
-            
             for (let i = 0; i < keys.length; i++) {
               const key = keys[i];
               const keys2 = Object.keys(data[key].goals.Personal);
@@ -30,14 +28,12 @@ export default function ExploreList({posts}) {
                   setExplorePosts((oldArray) => [...oldArray, update]);
                 });
               }
-
             }
           }
         });
       }
     });
-  }, []);
-
+  }, [0]);
 
     return (
         <View style={styles.container}>
@@ -53,7 +49,7 @@ export default function ExploreList({posts}) {
             }}
             renderItem={(post) => {
               const item = post.item;
-              return <ExplorePost item={item} num={(Math.floor(Math.random()*5) % 5)}/>
+              return <ExplorePost item={item} num={mountain}/>
             }}/>
         </View>
       )
@@ -71,4 +67,4 @@ const styles = StyleSheet.create({
     separator: {
       marginTop: 10,
     }
-  }); 
+  });

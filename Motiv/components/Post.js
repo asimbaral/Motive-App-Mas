@@ -1,6 +1,8 @@
 import React from "react";
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+
 const Post = ({post, name, navigation}) => {
+
   return(
         <TouchableOpacity style={styles.listItem} onPress={() => navigation.navigate('Update', {
               title: name,
@@ -8,6 +10,7 @@ const Post = ({post, name, navigation}) => {
             })}>
           <View style={{alignItems:"center",flex:1}}>
           <Text style={{ fontSize: 36} }>{name}</Text>
+          
           </View>
         </TouchableOpacity>
   )

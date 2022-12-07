@@ -16,7 +16,7 @@ export default function ProfileHomeScreen() {
       <View style={styles.container}>
           <View style={styles.header}>
             <View style={styles.headerContent}>
-                <Image style={styles.avatar} source={ profileImage}/>
+                <Image style={styles.avatar} source={ profileImage }/>
 
             </View>
           </View>

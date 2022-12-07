@@ -21,25 +21,12 @@ function UpdateScreen(props) {
   auth.onAuthStateChanged((user) => {
     if (user) {
       var st = `/${auth.currentUser.uid}/goals/Personal/${root.title}/posts`;
-      
       // read
       onValue(ref(db, st), (snapshot) => {
         const data = snapshot.val();
         if (data !== null) {
           setTimelineData(data);
-          
-          // Object.values(data).map((item) => {
-          //   const keys = Object.keys(item["Personal"]);
-
-          //   for (let i = 0; i < keys.length; i++) {
-          //     const key = keys[i];
-          //     // setGoals((oldArray) => [...oldArray, key]);
-          //   }
-
-          //   // setGoals((oldArray) => [...oldArray, {"id":uuid, "text":name}]);
-          // });
         }
-        // console.log(":::::*********", timelineData);
       });
     }
   });

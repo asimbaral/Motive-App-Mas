@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { auth, db } from '../../firebase/config'
 import { onValue, set, ref, remove } from "firebase/database";
+import moment from 'moment';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -15,11 +16,10 @@ const LoginScreen = () => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         // navigation.navigate("Main")
-        console.log("user has logged in --------------")
+        console.log("user has logged in --------------", moment.unix(moment().unix()).format("MM/DD/YYYY"))
         console.log(auth.currentUser.uid)
       }
     })
-
     return unsubscribe
   }, [])
 
@@ -36,17 +36,17 @@ const LoginScreen = () => {
           "goals": {
             "Personal": {
               "Join Motiv": {
-                "UpdateStatus": "Weekly",
+                "UpdateStatus": "Daily",
                 "posts": [{
-                  "description": "Go to gym 2x week",
-                  "time": "2022/11/11",
-                  "title": "Lose 5 pounds"
+                  "description": "Hello everyone, I want to achieve more goals!",
+                  "time": moment().unix(),
+                  "title": "Join Motiv",
+                  "likes": 1
                 }],
-                "description": "I want to become faster",
-                "timeStamp": "",
-                "goalID": "1",
-                "deadline": "11/30",
-                "comments": []
+                "description": "Hello everyone, I want to achieve more goals!",
+                "timeStamp": moment().unix(),
+                "deadline": moment().format("MM/DD"),
+                "didAchieve": 1
             }
             }
           }

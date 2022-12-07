@@ -17,13 +17,13 @@ const AddNewUpdateForm = (props) => {
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
   const Submit = () => {
-    const uuid = uid();
     const authUid = auth.currentUser.uid;
     const st = `/${authUid}/goals/Personal/${props.route.params.title}/posts`;
     const newJsonArray = props.route.params.timelineData;
     newJsonArray.push({"title": title,
     "description": desc,
-    "time": postDate
+    "time": postDate,
+    likes: 0
   });
 //   set(ref(db, st), {"title": title,
 //   "description": desc,

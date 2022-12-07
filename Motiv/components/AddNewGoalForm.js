@@ -32,7 +32,9 @@ const AddNewGoalForm = ({navigation, setGoals, setGoalsJson, goalsJson}) => {
         "deadline": selected,
         "posts": [{"title": title,
         "description": description,
-        "time": monthDate}],
+        "time": monthDate,
+        "likes": 0,
+        }],
         "comments": ["Great job - Motive Team"]
       });
       // setGoals((oldArray) => [...oldArray,  title])

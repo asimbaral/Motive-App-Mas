@@ -1,22 +1,23 @@
 import React, {useState} from "react";
-
+import { Pressable } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import mountainImage from '../assets/mountain.jpg';
-const mountainImages = {
-  0: require("../assets/mountain0.png"),
-  1: require("../assets/mountain1.png"),
-  2: require("../assets/mountain2.png"),
-  3: require("../assets/mountain3.png"),
-  4: require("../assets/mountain4.png"),
-};
+// import mountainImage from '../assets/mountain.jpg';
+// const mountainImages = {
+//   0: require("../assets/Mountain_Range_Background.svg"),
+//   1: require("../assets/mountain1.png"),
+//   2: require("../assets/mountain2.png"),
+//   3: require("../assets/mountain3.png"),
+//   4: require("../assets/mountain4.png"),
+// };
 
 const Update = ({item, num}) => {
-  let [n, setN] = useState(mountainImages[num]);
-  
+  const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(item.likes);
   return (
     <View style={styles.card}>
       {/* <Text>{JSON.stringify(item, null, 2)}</Text> */}
-      {n && <Image style={styles.cardImage} source={n}/>}
+      <Image style={styles.cardImage} source={{uri: 'https://www.banfflakelouise.com/sites/default/files/via_ferrata_mount_norquay_jake_dyson_2_horizontal.jpg'}}/>
       <View style={styles.cardHeader}>
         <View>
           <Text style={styles.title}>{item.title}</Text>
@@ -24,6 +25,23 @@ const Update = ({item, num}) => {
           <View style={styles.timeContainer}>
             <Image style={styles.iconData} source={{uri: 'https://img.icons8.com/color/96/3498db/calendar.png'}}/>
             <Text style={styles.time}>{item.time}</Text>
+            <Pressable onPress={() => {
+              setLiked((isLiked) => !isLiked);
+              if (liked) {
+                setLikeCount(likeCount - 1);
+              } else {
+                setLikeCount(likeCount + 1);
+              }
+              }}>
+      <MaterialCommunityIcons
+        name={liked ? "heart" : "heart-outline"}
+        size={32}
+        color={liked ? "red" : "black"}
+      />
+    </Pressable>
+    <Text>{likeCount}</Text>
+
+            {/* <Text style={styles.time}>   {JSON.stringify(item)}</Text> */}
           </View>
         </View>
       </View>
@@ -45,6 +63,7 @@ const Update = ({item, num}) => {
         </View>
       </View>
     </View>
+    //8eee91fa259f94afdedfdba55da7d918
   )
 }
 

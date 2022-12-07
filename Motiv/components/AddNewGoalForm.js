@@ -65,7 +65,21 @@ const AddNewGoalForm = ({navigation, setGoals, setGoalsJson, goalsJson}) => {
       // };
       // setGoalsJson(newJson);
 
-      
+      Notifications.scheduleNotificationAsync({
+        content: {
+          title: "New Goal!",
+          body: "Your goal has just been added!",
+          data: { data: "data goes here" }
+        },
+        trigger: {
+          seconds: 1
+        }
+        // trigger: {
+        //   hour: 3,
+        //   minute: 21,
+        //   repeats: true
+        // }
+      });
     
     navigation.goBack();
   };
@@ -168,6 +182,11 @@ const AddNewGoalForm = ({navigation, setGoals, setGoalsJson, goalsJson}) => {
         title="Submit"
         style={styles.submit}
         />
+        {/* <Button
+        onPress={onClick}
+        title="Submit"
+        style={styles.submit}
+        /> */}
         </View>
       </View>
     </ScrollView>

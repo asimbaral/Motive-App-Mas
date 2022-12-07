@@ -140,6 +140,12 @@ import mm from '../assets/MotivLogo.png';
 // const buffer = canvas.toBuffer("image/png");
 // console.log(canvas.toDataURL("image/png"))
 import MixPanel from './MixPanel';
+import ExpoMixpanelAnalytics from '@benawad/expo-mixpanel-analytics';
+
+const analytics = new ExpoMixpanelAnalytics("8eee91fa259f94afdedfdba55da7d918");
+
+analytics.identify("13793");
+analytics.register({ email: "bob@bob.com" });
 export default function PostList({props, navigation}) {
     const [goalsJson, setGoalsJson] = useState(props);
     const [goals, setGoals] = useState([""]);
@@ -175,14 +181,18 @@ export default function PostList({props, navigation}) {
 
     return (
         <View style={styles.container}>
-            {/* <Pressable style={styles.button} onPress={()=> navigation.navigate("New Goal", {"setGoals": setGoals, "setGoalsJson": setGoalsJson, "goalsJson": goalsJson})}>
-                <Text style={styles.text}>New Goal</Text>
-            </Pressable> */}
-            {/* <Image source={uriImage}></Image> */}
-            <MixPanel />
-            <Pressable style={styles.button} onPress={()=>saveImage(uriImage)}>
+            <Pressable style={styles.button} onPress={()=> {
+              navigation.navigate("New Goal", {"setGoals": setGoals, "setGoalsJson": setGoalsJson, "goalsJson": goalsJson});
+              analytics.track("AddingNewGoal", {"type": "Personal"});
+              
+              }}>
                 <Text style={styles.text}>New Goal</Text>
             </Pressable>
+            {/* <Image source={uriImage}></Image> */}
+            {/* <MixPanel /> */}
+            {/* <Pressable style={styles.button} onPress={()=>saveImage(uriImage)}>
+                <Text style={styles.text}>New Goal</Text>
+            </Pressable> */}
             <FlatList
             style={{flex:1}}
             data={goals}

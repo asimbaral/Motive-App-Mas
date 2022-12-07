@@ -8,7 +8,7 @@ export default class CanvasImage extends Component {
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = 'blue';
     ctx.fillRect(0, 0, 100, 100); 
-
+    
     // const image = new Image(canvas, height, width);
     // console.log(image);
 

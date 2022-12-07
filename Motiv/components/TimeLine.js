@@ -42,7 +42,7 @@ import React, { Component } from 'react';
      if(rowData.description) {
        desc = (
          <View style={styles.descriptionContainer}>   
-           <Image source={this.state[Math.floor(Math.random()*5) % 5]} style={styles.image}/>
+           <Image source={{uri: "https://www.liveabout.com/thmb/3hOYoLBcmnd5Rd_JRCSSZoIlE44=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/MontBlancRegion_BuenaVistaImages_Getty1-56a16aee3df78cf7726a89cf.jpg"}} style={styles.image}/>
            <Text style={[styles.textDescription]}>{rowData.description}</Text>
          </View>
        )

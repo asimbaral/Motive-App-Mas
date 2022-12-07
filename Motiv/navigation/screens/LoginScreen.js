@@ -39,7 +39,8 @@ const LoginScreen = () => {
                 "UpdateStatus": "Daily",
                 "posts": [{
                   "description": "Hello everyone, I want to achieve more goals!",
-                  "time": moment().unix(),
+                  "time": moment().format("YYYY/MM/DD"),
+                  "timeStamp": moment().unix(),
                   "title": "Join Motiv",
                   "likes": 1
                 }],

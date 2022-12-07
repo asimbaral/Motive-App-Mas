@@ -10,6 +10,12 @@ import TimeLine from '../../components/TimeLine';
 import CurrentGoal from '../../components/CurrentGoal';
 import { onValue, set, ref, remove } from "firebase/database";
 
+import ExpoMixpanelAnalytics from '@benawad/expo-mixpanel-analytics';
+
+const analytics = new ExpoMixpanelAnalytics("8eee91fa259f94afdedfdba55da7d918");
+
+analytics.identify("13793");
+analytics.register({ email: "bob@bob.com" });
 
 function UpdateScreen(props) {
   const root = props.route.params;
@@ -17,7 +23,6 @@ function UpdateScreen(props) {
   const [timelineData, setTimelineData] = useState(props.route.params.post.posts);
   const [count, setCount] = useState(0);
   useEffect(() => {
-  
   auth.onAuthStateChanged((user) => {
     if (user) {
       var st = `/${auth.currentUser.uid}/goals/Personal/${root.title}/posts`;
@@ -36,8 +41,22 @@ function UpdateScreen(props) {
   return (
     <>
       <CurrentGoal title={root.title} deadline={root.post.deadline} description={root.post.description} updateStatus={root.post.UpdateStatus}/>
+      
       <View style={styles2.app}>
-        <TouchableOpacity style={styles2.button} onPress={()=> props.navigation.navigate("New Update", {title: root.title, "setTimelineData": setTimelineData, "timelineData": timelineData, "count": count, "setCount": setCount})}>
+      <TouchableOpacity style={styles2.button} onPress={()=> {
+          props.navigation.navigate("Share", {
+            "currentGoal": root.title, 
+            "deadline": root.post.deadline, 
+            "timeline": timelineData
+          })
+        }}>
+        <Text style={styles2.buttonText}>Share Goal</Text>
+        
+      </TouchableOpacity>
+        <TouchableOpacity style={styles2.button} onPress={()=> {
+          props.navigation.navigate("New Update", {title: root.title, "setTimelineData": setTimelineData, "timelineData": timelineData, "count": count, "setCount": setCount})
+          analytics.track("AddingUpdate", { "post": root.title, "description": root.post.description});
+          }}>
           <Text style={styles2.buttonText}>Add Update</Text>
         </TouchableOpacity>
       </View>

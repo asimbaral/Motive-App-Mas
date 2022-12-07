@@ -10,6 +10,13 @@ import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 //   3: require("../assets/mountain3.png"),
 //   4: require("../assets/mountain4.png"),
 // };
+import ExpoMixpanelAnalytics from '@benawad/expo-mixpanel-analytics';
+
+const analytics = new ExpoMixpanelAnalytics("8eee91fa259f94afdedfdba55da7d918");
+
+analytics.identify("13793");
+analytics.register({ email: "bob@bob.com" }); // super props sent on every request and persisted in AsyncStorage
+
 
 const Update = ({item, num}) => {
   const [liked, setLiked] = useState(false);
@@ -17,7 +24,7 @@ const Update = ({item, num}) => {
   return (
     <View style={styles.card}>
       {/* <Text>{JSON.stringify(item, null, 2)}</Text> */}
-      <Image style={styles.cardImage} source={{uri: 'https://www.banfflakelouise.com/sites/default/files/via_ferrata_mount_norquay_jake_dyson_2_horizontal.jpg'}}/>
+      <Image style={styles.cardImage} source={{uri: 'https://www.liveabout.com/thmb/3hOYoLBcmnd5Rd_JRCSSZoIlE44=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/MontBlancRegion_BuenaVistaImages_Getty1-56a16aee3df78cf7726a89cf.jpg'}}/>
       <View style={styles.cardHeader}>
         <View>
           <Text style={styles.title}>{item.title}</Text>
@@ -27,6 +34,7 @@ const Update = ({item, num}) => {
             <Text style={styles.time}>{item.time}</Text>
             <Pressable onPress={() => {
               setLiked((isLiked) => !isLiked);
+              analytics.track("LikeButtonPressed", { "post": item.title, "description": item.description});
               if (liked) {
                 setLikeCount(likeCount - 1);
               } else {
@@ -39,7 +47,7 @@ const Update = ({item, num}) => {
         color={liked ? "red" : "black"}
       />
     </Pressable>
-    <Text>{likeCount}</Text>
+    {/* <Text>{likeCount}</Text> */}
 
             {/* <Text style={styles.time}>   {JSON.stringify(item)}</Text> */}
           </View>
@@ -132,7 +140,8 @@ const styles = StyleSheet.create({
   time:{
     fontSize:13,
     color: "#808080",
-    marginTop: 5
+    marginTop: 5,
+    marginRight: 200
   },
   icon: {
     width:25,

@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {Alert, Text, StyleSheet, View, TextInput, Button, ScrollView} from 'react-native';
+import {Alert, Text, StyleSheet, View, TextInput, Button, ScrollView, Image} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { firebase, db, auth } from '../firebase/config'
 import { onValue, set, ref, remove } from "firebase/database";
 import { uid } from 'uid';
+import profileImage from '../assets/rsz_2ad.png';
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
@@ -12,8 +13,14 @@ var yyyy = today.getFullYear();
 
 today = yyyy + '/' + mm + '/' + dd;
 var postDate = mm + '/' + dd;
+import ExpoMixpanelAnalytics from '@benawad/expo-mixpanel-analytics';
 
+const analytics = new ExpoMixpanelAnalytics("8eee91fa259f94afdedfdba55da7d918");
+
+analytics.identify("13793");
+analytics.register({ email: "bob@bob.com" });
 const AddNewUpdateForm = (props) => {
+
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
   const Submit = () => {
@@ -39,7 +46,13 @@ set(ref(db, st), newJsonArray);
     // "description": desc,
     // "time": postDate
     // }]);
+    analytics.track("SubmitingUpdate", {"title": title,
+    "description": desc,
+    "time": postDate,
+    likes: 0
+  });
   props.navigation.goBack();
+  // props.navigation.navigate("Share");
 };
 
   return (
@@ -60,10 +73,16 @@ set(ref(db, st), newJsonArray);
 
         <View style={styles.buttonContainer}>
         <Button
-        onPress={Submit}
+        onPress={() => {
+          if (title.length>2) {
+          Submit();}}}
         title="Submit"
         style={styles.submit}
         />
+
+        </View>
+        <View>
+        <Image style= {styles.formLabel}source={profileImage}/>
         </View>
       </View>
     </ScrollView>

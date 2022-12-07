@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { auth, db } from '../../firebase/config'
 import { onValue, set, ref, remove } from "firebase/database";
+// import { registerIndieID } from 'native-notify';
+// import axios from 'axios';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');

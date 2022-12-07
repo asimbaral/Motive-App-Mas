@@ -4,11 +4,23 @@
     "slug": "motiv",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/MotivIcon.png",
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./local/assets/notification-icon.png",
+          "color": "#ffffff",
+          "sounds": [
+            "./local/assets/notification-sound.wav",
+            "./local/assets/notification-sound-other.wav"
+          ]
+        }
+      ]
+    ],
     "userInterfaceStyle": "light",
-    "owner": "asimbaral",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/MotivSplashScreen.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
